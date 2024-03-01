@@ -112,8 +112,11 @@ class DocData {
         return new Paragraph({
             children: [
                 new TextRun({
-                    text: "       " + nom + " " + prenom,
+                    text: "    " + nom + " " + prenom,
                     bold: true,
+                    font: "Century Gothic",
+                    size: 36,
+                    color: "#e6f1eb",
                     alignment: AlignmentType.CENTER,
                 }),
                 new TextRun({
@@ -136,15 +139,15 @@ class DocData {
             },
         });
     }
-    static getBufferLogo1stPage() {
+    static getHeaderLogoDefault() {
         return new Paragraph({
             children: [
                 new ImageRun({
                     type: "png",
-                    data: this.urlToBlob(enumImg.Logo2),
+                    data: this.urlToBlob(enumImg.Logo1),
                     transformation: {
-                        width: 120,
-                        height: 54,
+                        width: 75,
+                        height: 105,
                     },
 
                     floating: {
@@ -163,22 +166,105 @@ class DocData {
              }*/
         });
     }
-    static getBufferLogo() {
+    static getBufferLogo1stPage() {
         return new Paragraph({
             children: [
                 new ImageRun({
                     type: "png",
-                    data: this.urlToBlob(enumImg.Logo1),
+                    data: this.urlToBlob(enumImg.Logo2),
                     transformation: {
-                        width: 80,
-                        height: 80,
+                        width: 180,
+                        height: 85,
+                    },
+
+                    floating: {
+                        horizontalPosition: {
+                            align: HorizontalPositionAlign.RIGHT,
+                        },
+                        verticalPosition: {
+                            align: VerticalPositionAlign.TOP,
+                        },
+                    },
+                }),
+            ],
+            /* spacing: {
+                 before: 100,
+                 after: 100,
+             }*/
+        });
+    }
+    static getDocumentBG() {
+        return new Paragraph({
+            children: [
+                new ImageRun({
+                    type: "png",
+                    data: this.urlToBlob(enumImg.DocumentBG),
+                    transformation: {
+                        width: 903,
+                        height: 1149,
+                        /*position: absolute,
+                        top: 150,
+                        right: 0,*/
+                    },
+                    floating: {
+                        behindDocument: true,
+                        horizontalPosition: {
+                            //offset: 1014400,
+                            //top: 150,
+                            align: HorizontalPositionAlign.LEFT,
+                        },
+                        verticalPosition: {
+                            //offset: 1014400,
+                            align: VerticalPositionAlign.BOTTOM,
+                        },
+                    },
+                }),
+            ],
+        });
+    }
+    static getFooterBG() {
+        return new Paragraph({
+            children: [
+                new ImageRun({
+                    type: "png",
+                    data: this.urlToBlob(enumImg.FooterBG),
+                    transformation: {
+                        width: 800,
+                        height: 100,
                         /*position: absolute,
                                                             top: 0,
                                                             right: 0,*/
                     },
                     floating: {
+                        behindDocument: true,
                         horizontalPosition: {
-                            align: HorizontalPositionAlign.RIGHT,
+                            align: HorizontalPositionAlign.LEFT,
+                        },
+                        verticalPosition: {
+                            align: VerticalPositionAlign.BOTTOM,
+                        },
+                    },
+                }),
+            ],
+        });
+    }
+    static getBufferLogo() {
+        return new Paragraph({
+            children: [
+                new ImageRun({
+                    type: "png",
+                    data: this.urlToBlob(enumImg.HeaderGauche),
+                    transformation: {
+                        width: 600,
+                        height: 110,
+                        /*position: absolute,
+                                                            top: 0,
+                                                            right: 0,*/
+                    },
+                    floating: {
+                        behindDocument: true,
+                        horizontalPosition: {
+                            align: HorizontalPositionAlign.LEFT,
                         },
                         verticalPosition: {
                             align: VerticalPositionAlign.TOP,

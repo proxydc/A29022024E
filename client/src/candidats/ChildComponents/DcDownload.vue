@@ -25,6 +25,7 @@ import {
   VerticalPositionAlign,
   TextWrappingType,
   TextWrappingSide,
+  DocumentBackground,
 } from "docx";
 import docData from "../../DocGeneration/tools/DocData"
 const FileSaver = require("file-saver");
@@ -75,22 +76,25 @@ export default {
               titlePage: true,
             },
             headers: {
-              /*first: new Header({
+              first: new Header({
                 // The header on first page when the 'Different First Page' option is activated
                 children: [
+                  //docData.getDocumentBG(),
                   docData.getHeader(docjs.familyname, docjs.firstname),
                   docData.getBufferLogo1stPage(),
-                 // docData.getBufferLogo(),
+                  docData.getBufferLogo(),
                 ],
-              }),*/
-             /* default: new Header({
+              }),
+              default: new Header({
                 // The standard default header on every page or header on odd pages when the 'Different Odd & Even Pages' option is activated
                 children: [
+                //docData.getDocumentBG(),
                   docData.getHeader(docjs.familyname, docjs.firstname),
+                  docData.getHeaderLogoDefault(),
                   docData.getBufferLogo(),
                   //docData.getHL(),
                 ],
-              }),*/
+              }),
               /* even: new Header({ // The header on even pages when the 'Different Odd & Even Pages' option is activated
                 children: [],
             }),*/
@@ -99,10 +103,10 @@ export default {
               default: new Footer({
                 // The standard default footer on every page or footer on odd pages when the 'Different Odd & Even Pages' option is activated
                 children: [
+                  docData.getFooterBG(),
                   docData.getFooterC(docjs.familyname, docjs.firstname),
                   docData.LineBreak(),
-                  docData.LineBreak(),
-                  
+                 
                   //docData.getFooterL(),
                   docData.getPageNumber(),
                 ],
@@ -110,8 +114,8 @@ export default {
               first: new Footer({
                 // The footer on first page when the 'Different First Page' option is activated
                 children: [
+                  docData.getFooterBG(),
                   docData.getFooterC(docjs.familyname, docjs.firstname),
-                  docData.LineBreak(),
                   docData.LineBreak(),
                   //docData.getFooterL(),
                   //docData.getFooterR(),
@@ -205,7 +209,10 @@ export default {
             ],
           },
         ],
-      });
+       
+      },
+
+      );
       //doc.add(docData.getSubTitle("Outils"));
     /*  doc.addSection({
         children: [

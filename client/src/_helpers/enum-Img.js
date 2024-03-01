@@ -10,6 +10,9 @@ const BulletImage = Object.freeze({
     HL: "https://raw.githubusercontent.com/proxydc/Templates/main/HLine.png",
     Logo1: "https://raw.githubusercontent.com/proxydc/Templates/main/logo.png",
     Logo2: "https://raw.githubusercontent.com/proxydc/Templates/main/logo1stpage.png",
+    HeaderGauche: "https://raw.githubusercontent.com/proxydc/Templates/main/HeaderGauche.png",
+    FooterBG: "https://raw.githubusercontent.com/proxydc/Templates/main/FooterBG.png",
+    DocumentBG: "https://raw.githubusercontent.com/proxydc/Templates/main/DocumentBG.png",
 });
 
 export default BulletImage;
